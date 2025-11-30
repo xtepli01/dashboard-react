@@ -9,7 +9,7 @@ export default function Dashboard() {
 
   // 1. Завантаження data.json
   useEffect(() => {
-    fetch(process.env.PUBLIC_URL + "/data.json")
+    fetch(import.meta.env.BASE_URL + "data.json")
       .then(res => res.json())
       .then(data => setTimeData(data))
       .catch(err => console.error("Не вдалося завантажити data.json:", err));
