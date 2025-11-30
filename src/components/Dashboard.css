@@ -1,0 +1,235 @@
+/* ============ GLOBAL RESET ============ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  background: #0d0f1a;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* ============ LAYOUT ============ */
+
+.container {
+  display: grid;
+  grid-template-columns: 255px 1fr;
+  gap: 30px;
+}
+
+/* ============ PROFILE CARD ============ */
+
+.profile-card {
+  width: 255px;
+  border-radius: 15px;
+  background: #4C4C4C;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+  
+}
+
+.profile-outer{
+    width: 255px;
+    height: 354px;
+    background-color: #808080;
+    border-radius: 15px;
+    padding: 26px 26px 88px;
+}
+
+
+
+.avatar-wrapper {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.avatar-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-label {
+  font-size: 13px;
+  color: #8f92ff;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.profile-footer {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 25px 0 0 0;
+}
+
+.profile-period {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  
+}
+
+.profile-period.active {
+  color: #8f92ff;
+}
+
+.profile-period:hover {
+  color: #c4c6ff;
+}
+
+/* ============ CARDS GRID ============ */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 255px);
+  gap: 25px;
+}
+
+/* ============ CARD WRAPPER ============ */
+
+.card {
+  width: 255px;
+  height: 244px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardFadeUp 0.6s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.10s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.20s; }
+.card:nth-child(5) { animation-delay: 0.25s; }
+.card:nth-child(6) { animation-delay: 0.30s; }
+
+/* BACKGROUND COLORS */
+.orange { background: #ff8c66; }
+.blue   { background: #56c2e6; }
+.pink   { background: #ff5e7d; }
+.green  { background: #4acf81; }
+.purple { background: #7536d3; }
+.yellow { background: #f1c85b; }
+
+/* ================= ICON (TOP BUBBLE) ================= */
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.45;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* ============ INNER DARK CARD ============ */
+
+.card-inner {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 255px;
+  height: 199px;
+  background: #4c4c4c;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* MOVE ON HOVER */
+.card:hover .card-inner {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* ============ CARD CONTENT ============ */
+
+.card-content {
+  width: 100%;
+  padding: 20px;
+}
+
+/* TOP AREA WITH TITLE AND DOTS */
+.card-content h3 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #d7dae7;
+  margin-bottom: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ============ THREE DOTS ============ */
+
+.dots {
+  display: flex;
+  gap: 4px;
+}
+
+.dots span {
+  width: 5px;
+  height: 5px;
+  background: #d7dae7;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ============ TEXT DETAILS ============ */
+
+.hours {
+  font-size: 56px;
+  line-height: 66px;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.last-period {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #8a8f99;
+}
+
+/* ============ ANIMATION ============ */
+
+@keyframes cardFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
